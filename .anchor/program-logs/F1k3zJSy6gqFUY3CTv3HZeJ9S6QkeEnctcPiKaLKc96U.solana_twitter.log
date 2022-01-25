@@ -1,0 +1,11 @@
+Streaming transaction logs mentioning F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U. Confirmed commitment
+Transaction executed in slot 125941:
+  Signature: 5icZJ2skU2g4dREwBT7LGJhHZHR5ABJ9xCJG7AW8c1J2EX9J2n6VUGA6vQbSaxtf922g3Z5GmWqn2cEWp6Ldm2zv
+  Status: Ok
+  Log Messages:
+    Program F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U invoke [1]
+    Program log: Instruction: SendTweet
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U consumed 14343 of 200000 compute units
+    Program F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U success
