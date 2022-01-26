@@ -1,6 +1,6 @@
 Streaming transaction logs mentioning F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U. Confirmed commitment
-Transaction executed in slot 125941:
-  Signature: 5icZJ2skU2g4dREwBT7LGJhHZHR5ABJ9xCJG7AW8c1J2EX9J2n6VUGA6vQbSaxtf922g3Z5GmWqn2cEWp6Ldm2zv
+Transaction executed in slot 142736:
+  Signature: 2TqW7ZVJ4V6BLWqqtMkkzghxjLZfUg3LiKvmaTnmHHszgC2iW5CEowqTqBaL8yTmxLxaawjF1qPad7jnRUSJTRzz
   Status: Ok
   Log Messages:
     Program F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U invoke [1]
@@ -8,4 +8,24 @@ Transaction executed in slot 125941:
     Program 11111111111111111111111111111111 invoke [2]
     Program 11111111111111111111111111111111 success
     Program F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U consumed 14343 of 200000 compute units
+    Program F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U success
+Transaction executed in slot 142737:
+  Signature: 5XriVqYpaYmXaVjXXLB1XpneZdrrJaR9gksZNsrwcEyetGA61nz5ccZFAMS3XbSPkAgW6xrXuKGfwzFpSGwKHdQb
+  Status: Ok
+  Log Messages:
+    Program F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U invoke [1]
+    Program log: Instruction: SendTweet
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U consumed 13510 of 200000 compute units
+    Program F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U success
+Transaction executed in slot 142739:
+  Signature: 5JYbhF5ne8V354pYF5mrkuaTz3NgG7FujiaSUszEwK8sGgY68mfqFg1jVHDqDNCSrHcnbChzj2ZJzYbJjgCY5BQu
+  Status: Ok
+  Log Messages:
+    Program F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U invoke [1]
+    Program log: Instruction: SendTweet
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U consumed 14219 of 200000 compute units
     Program F1k3zJSy6gqFUY3CTv3HZeJ9S6QkeEnctcPiKaLKc96U success
