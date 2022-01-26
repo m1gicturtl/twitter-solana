@@ -2,6 +2,7 @@ import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
 import { SolanaTwitter } from '../target/types/solana_twitter';
 import * as assert from "assert";
+import * as bs58 from "bs58";
 
 describe('solana_twitter', () => {
 
@@ -62,7 +63,7 @@ describe('solana_twitter', () => {
 
     // Call the "SendTweet" instruction.
     const tweet = anchor.web3.Keypair.generate();
-    await program.rpc.sendTweet('otherUser', 'otherUserTweet gm', {
+    await program.rpc.sendTweet('solana', 'otherUserTweet gm', {
         accounts: {
             tweet: tweet.publicKey,
             author: otherUser.publicKey,
@@ -76,7 +77,7 @@ describe('solana_twitter', () => {
 
     // Ensure it has the right data.
     assert.equal(tweetAccount.author.toBase58(), otherUser.publicKey.toBase58());
-    assert.equal(tweetAccount.topic, 'otherUser');
+    assert.equal(tweetAccount.topic, 'solana');
     assert.equal(tweetAccount.content, 'otherUserTweet gm');
     assert.ok(tweetAccount.timestamp);
   });
@@ -121,4 +122,45 @@ describe('solana_twitter', () => {
             assert.fail('The instruction should have failed with a 281 chars content');
     });
     
+    it('can fetch all tweets', async () => {
+        const tweetAccounts = await program.account.tweet.all();
+        assert.equal(tweetAccounts.length, 3);
+    });
+
+    it('can filter tweets by author', async () => {
+        const authorPublicKey = program.provider.wallet.publicKey;
+        const tweetAccounts = await program.account.tweet.all([
+            {
+                memcmp: {
+                    offset: 8, //Discriminator, # of byte to start looking from onwards
+                    bytes: authorPublicKey.toBase58(),
+                }
+            }
+        ]);
+        
+        assert.equal(tweetAccounts.length, 2);
+        assert.ok(tweetAccounts.every(tweetAccount => {
+            return tweetAccount.account.author.toBase58() === authorPublicKey.toBase58()
+        }));
+    });
+
+    it('can filter tweets by topics', async () => {
+        const tweetAccounts = await program.account.tweet.all([
+            {
+                memcmp: {
+                    offset: 8 + // Discriminator.
+                        32 + // Author public key.
+                        8 + // Timestamp.
+                        4, // Topic string prefix.
+                    bytes: bs58.encode(Buffer.from('solana')),
+                }
+            }
+        ]);
+    
+        assert.equal(tweetAccounts.length, 2);
+        assert.ok(tweetAccounts.every(tweetAccount => {
+            return tweetAccount.account.topic === 'solana'
+        }))
+    });
+
 });
