@@ -1,7 +1,7 @@
-// CSS
+// CSS.
 import './main.css'
 
-//Routing
+// Routing.
 import { createRouter, createWebHashHistory } from 'vue-router'
 import routes from './routes'
 const router = createRouter({
@@ -9,8 +9,7 @@ const router = createRouter({
     routes,
 })
 
-// Create app
+// Create the app.
 import { createApp } from 'vue'
 import App from './App.vue'
-
 createApp(App).use(router).mount('#app')
