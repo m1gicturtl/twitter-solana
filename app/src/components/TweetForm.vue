@@ -2,6 +2,7 @@
 import { computed, ref, toRefs } from 'vue'
 import { useAutoresizeTextarea, useCountCharacterLimit, useSlug } from '@/composables'
 import { sendTweet } from '@/api'
+import { useWallet } from '@solana/wallet-adapter-vue'
 
 // Props.
 const props = defineProps({
@@ -28,7 +29,7 @@ const characterLimitColour = computed(() => {
 })
 
 // Permissions.
-const connected = ref(true) // TODO: Check connected wallet.
+const { connected } = useWallet() // must have connected wallet
 const canTweet = computed(() => content.value && characterLimit.value > 0)
 
 // Actions.
@@ -43,6 +44,7 @@ const send = async () => {
 </script>
 
 <template>
+    <!-- v-if connected checks if connected is true -> shows this form if true else it shows the other promptiing you to connect wallet -->
     <div v-if="connected" class="px-8 py-4 border-b">
 
         <!-- Content field. -->
